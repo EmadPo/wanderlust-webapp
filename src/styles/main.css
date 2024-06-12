@@ -1,0 +1,84 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #13334c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e4f74;
+}
+
+.dot-span {
+  color: #13334c;
+  font-size: 2rem;
+}
+
+.navbar-bg {
+  background-color: #13334c !important;
+}
+
+.jumbotron-background {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../public/images/banner.png') no-repeat center center;
+  background-size: cover;
+  color: white;
+  height: 500px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-position: center 100%;
+}
+
+.jumbotron-background__explore {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../public/images/banner-explore.png') no-repeat center center;
+  background-size: cover;
+  color: white;
+  height: 500px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-position: center 5%;
+}
+
+.jumbotron-background__favorite {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../public/images/banner-favorite.png') no-repeat center center;
+  background-size: cover;
+  color: white;
+  height: 500px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-position: center 5%;
+}
+
+.jumbotron {
+  margin-top: 100px;
+}
+
+.w-color {
+  color: #19a7ce;
+}
+
+.w-bg {
+  background-color: #13334c;
+}
+
+.detail {
+  margin-top: 20px;
+}
+
+.img__fluid img {
+  margin-top: 20px;
+  width: 1000px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.deskripsi-destinasi {
+  margin-top: 20px;
+}
