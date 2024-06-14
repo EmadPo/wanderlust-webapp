@@ -35,6 +35,19 @@ module.exports = {
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/templates/index.html'),
     }),
+    new HtmlWebpackPlugin({
+      filename: 'explore.html',
+      template: path.resolve(__dirname, 'src/templates/explore.html'),
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'detail.html',
+      template: path.resolve(__dirname, 'src/templates/detail.html'),
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'favorite.html',
+      template: path.resolve(__dirname, 'src/templates/favorite.html'),
+    }),
+
     new CopyWebpackPlugin({
       patterns: [
         {

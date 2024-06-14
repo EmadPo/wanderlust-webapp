@@ -9,7 +9,7 @@ openRequest.onerror = function (event) {
 openRequest.onsuccess = function (event) {
   db = event.target.result;
   console.log('Database opened successfully');
-  displayFavorites(); // Panggil fungsi displayFavorites setelah db terbuka
+  displayFavorites();
 };
 
 openRequest.onupgradeneeded = function (event) {
@@ -22,7 +22,7 @@ openRequest.onupgradeneeded = function (event) {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  // displayFavorites(); // Jangan panggil di sini karena db mungkin belum terbuka
+  // displayFavorites();
 });
 
 function displayFavorites() {
@@ -45,29 +45,25 @@ function displayFavorites() {
     const favorites = event.target.result;
 
     if (favorites && favorites.length > 0) {
-      favoriteList.innerHTML = ''; // Clear existing content
+      favoriteList.innerHTML = '';
 
       favorites.forEach((favorite) => {
         const { id, title, imageUrl, description } = favorite;
 
-        const favoriteHTML = `
-          <div class="card mb-3">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="${imageUrl}" class="img-fluid rounded-start" alt="${title}">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">${title}</h5>
-                  <p class="card-text">${description}</p>
-                  <a href="/detail.html?id=${id}" class="btn btn-primary">Detail</a>
-                </div>
-              </div>
+        const favoriteItem = document.createElement('div');
+        favoriteItem.classList.add('col-12', 'col-md-4', 'mb-4');
+        favoriteItem.innerHTML = `
+          <div class="card ">
+            <img src="${imageUrl}" class="card-img-top" alt="${title}">
+            <div class="card-body">
+              <h5 class="card-title">${title}</h5>
+              <p class="card-text">${description}</p>
+              <a href="/detail.html?id=${id}" class="btn btn-primary">Detail</a>
             </div>
           </div>
         `;
 
-        favoriteList.innerHTML += favoriteHTML;
+        favoriteList.appendChild(favoriteItem);
       });
     } else {
       favoriteList.innerHTML = '<p>No favorites found.</p>';

@@ -1,4 +1,4 @@
-let db; // Global variable to hold the IndexedDB connection
+let db;
 
 document.addEventListener('DOMContentLoaded', async () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   try {
-    // Open IndexedDB connection
     db = await openDB();
 
     const destinationData = await fetchDestinationData(destinationId);
@@ -22,8 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function openDB() {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open('myDatabase', 1); // Change 'myDatabase' to your actual database name
-
+    const request = indexedDB.open('myDatabase', 1);
     request.onerror = function (event) {
       console.error('Error opening IndexedDB:', event.target.error);
       reject(event.target.error);
@@ -36,7 +34,7 @@ async function openDB() {
 
     request.onupgradeneeded = function (event) {
       const database = event.target.result;
-      // Create object store if not exists
+
       if (!database.objectStoreNames.contains('likes')) {
         database.createObjectStore('likes', { keyPath: 'id' });
       }
@@ -67,7 +65,7 @@ function renderDestinationDetail(data) {
   }
 
   const detailHTML = `
-    <div class="card">
+    <div class="card col-8 mx-auto">
       <div style="position: relative;">
         <span style="position: absolute; top: 10px; right: 10px; z-index: 1;"></span>
         <img src="${image_url}" class="card-img-top" alt="${title}">
